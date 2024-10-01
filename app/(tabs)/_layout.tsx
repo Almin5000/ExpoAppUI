@@ -1,37 +1,35 @@
-import { Tabs } from 'expo-router';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
+import { Tabs } from 'expo-router';
+import tw from 'twrnc';
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const TabIcon = ({ source }) => {
+  return (
+    <Image source={source} style={tw`h-10 w-10`} />
+  );
+};
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const _layout = () => {
   return (
     <Tabs
+      sceneContainerStyle={tw`bg-white`}
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
-        }}
-      />
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          margin: 15,
+          height: 70,
+          borderRadius: 100,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)'
+        }
+      }}
+    >
+      <Tabs.Screen name='home' options={{ tabBarIcon: () => <TabIcon source={require('../../assets/icons/home.png')} /> }} />
+      <Tabs.Screen name='chat' options={{ tabBarIcon: () => <TabIcon source={require('../../assets/icons/chat.png')} /> }} />
+      <Tabs.Screen name='history' options={{ tabBarIcon: () => <TabIcon source={require('../../assets/icons/list.png')} /> }} />
+      <Tabs.Screen name='profile' options={{ tabBarIcon: () => <TabIcon source={require('../../assets/icons/profile.png')} /> }} />
     </Tabs>
   );
-}
+};
+
+export default _layout;
