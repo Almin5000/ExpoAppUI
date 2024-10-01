@@ -7,6 +7,7 @@ import GoogleButton from '@/components/GoogleButton'
 import { Link } from 'expo-router'
 import InputwithIconAndLabel from '@/components/InputwithIconAndLabel'
 import Popup from '@/components/Popup'
+import { ScrollView } from 'react-native'
 
 const signIn = () => {
     const[visible, setVisible] = useState(false)
@@ -24,12 +25,14 @@ const signIn = () => {
             Welcome
           </Text>
 
+          <ScrollView showsVerticalScrollIndicator={false}>
+            
 
         <InputwithIconAndLabel label='Email' placeholder='Enter email' icon={require('../../assets/icons/email.png')}/>
 
         <InputwithIconAndLabel label='Password' placeholder='Enter password' icon={require('../../assets/icons/lock.png')}/>
 
-        <Text style={tw`text-blue-400 p-bottom-2`}>
+        <Text style={tw`text-blue-400 p-bottom-2 p-3`}>
           <Link href={'/signIn'}>
           Forgot your password?
           </Link>
@@ -43,7 +46,7 @@ const signIn = () => {
         <GoogleButton/>
 
         <View>
-          <Text style={tw`text-center text-lg text-gray-500`}>
+          <Text style={tw`text-center text-lg text-gray-500 p-3`}>
             Dont't have an Account?
                <Link href='/(auth)/signUp' 
                 style={tw`text-blue-500 font-semibold`}> Sign up</Link>
@@ -55,6 +58,8 @@ const signIn = () => {
             <Popup setVisible={setVisible} visible={visible}/>
           )}
           {/* custom popup */}
+          </ScrollView>
+
     </View>
   )
 }

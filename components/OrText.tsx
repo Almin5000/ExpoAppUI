@@ -4,7 +4,7 @@ import tw from 'twrnc'
 
 const OrText = () => {
   return (
-    <View style={tw`flex-row justify-between  items-center`}>
+    <View style={tw`flex-row justify-between  items-center p-1`}>
         <View style={tw`h-1 w-40 bg-gray-200`}></View>
       <Text style={tw`text-lg `}>
         Or
