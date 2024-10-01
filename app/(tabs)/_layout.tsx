@@ -5,7 +5,7 @@ import tw from 'twrnc';
 
 const TabIcon = ({ source }) => {
   return (
-    <Image source={source} style={tw`h-10 w-10`} />
+    <Image source={source} style={tw`h-10 w-10 mt-5`} />
   );
 };
 

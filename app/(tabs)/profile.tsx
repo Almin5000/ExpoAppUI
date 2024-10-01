@@ -1,4 +1,4 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import tw from 'twrnc'
 import InputWithEditIcon from '@/components/InputWithEditIcon'
@@ -15,13 +15,15 @@ const profile = () => {
             border-gray-400 p-1`}/>
         </View>
 
-        <View style={tw`bg-gray-200 rounded-lg p-6`}>
-            <InputWithEditIcon label='First name' text='Peter'/>
-            <InputWithEditIcon label='Last name' text='kjær'/>
-            <InputWithEditIcon label='Email' text='Peter12@gmail.com'/>
-            <InputWithEditIcon label='Email status' text='Verified'/>
-            <InputWithEditIcon label='Phone' text='+4594837284'/>
-        </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={tw`bg-gray-200 rounded-lg p-6`}>
+              <InputWithEditIcon label='First name' text='Peter'/>
+              <InputWithEditIcon label='Last name' text='kjær'/>
+              <InputWithEditIcon label='Email' text='Peter12@gmail.com'/>
+              <InputWithEditIcon label='Email status' text='Verified'/>
+              <InputWithEditIcon label='Phone' text='+4594837284'/>
+          </View>
+          </ScrollView>
     </View>
   )
 }
